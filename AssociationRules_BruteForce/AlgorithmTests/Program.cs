@@ -27,6 +27,8 @@ namespace AlgorithmTests
                 Data data = new Data(minS);
                 //data.LoadTransactions();
                 data.SaveRelevantItems();
+                Console.WriteLine("Acabó");
+                Console.ReadLine();
             }
         }
     }
