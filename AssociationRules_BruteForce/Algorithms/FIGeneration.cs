@@ -8,6 +8,8 @@ namespace Algorithms
 {
     public class FIGeneration
     {
+        private int minsup;
+
         //Constructor
         public FIGeneration()
         {
@@ -18,7 +20,7 @@ namespace Algorithms
         public void FrequentIGApriorio()
         {
             int k = 1; // size k of itemset (k-itemset)
-
+            //HashSet<>
         }
     }
 }
