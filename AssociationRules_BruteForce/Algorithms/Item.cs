@@ -13,10 +13,10 @@ namespace Algorithms
         public int countSupport { get; set; }
         public Boolean candidate { get; set; }
 
-        public Item(String cod, String name)
+        public Item(String cod)
         {
             this.cod = cod;
-            this.name = name;
+            this.name = "";
         }
 
         public void IncreaserCount()

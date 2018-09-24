@@ -9,9 +9,9 @@ namespace Algorithms
 {
     public class Data
     {
-        private String routeA = "..\\..\\..\\Data\\Articulos.csv";
-        private String routeC = "..\\..\\..\\Data\\Clientes.csv";
-        private String routeV = "..\\..\\..\\Data\\Ventas.csv";
+        private String routeArticulos = "..\\..\\..\\Data\\Articulos.csv";
+        private String routeClientes = "..\\..\\..\\Data\\Clientes.csv";
+        private String routeVentas = "..\\..\\..\\Data\\Ventas.csv";
         private String routeFI = "..\\..\\..\\Data\\FrequentItems.csv";
         private double minSupport;
 
@@ -31,12 +31,66 @@ namespace Algorithms
         {
             try
             {
+                StreamReader sr = new StreamReader(routeVentas);
+                String line = sr.ReadLine();
+                line = sr.ReadLine();
+                while (line != null)
+                {
 
+                    String[] datos = line.Split(';');
+                    if (transactions.ContainsKey(datos[2]))
+                    {
+                        Item actualItem = new Item(datos[4]);
+                        transactions[datos[2]].items.Add(actualItem);
+                        if (!items.ContainsKey(datos[4]))
+                        {
+                            items.Add(actualItem.cod, actualItem);
+                        }
+                        items[datos[4]].IncreaserCount();
+                    }
+                    else
+                    {
+                        Transaction actual = new Transaction(datos[0], datos[1], datos[2]);
+                        transactions.Add(datos[2], actual);
+                        Item actualItem = new Item(datos[4]);
+                        actual.items.Add(actualItem);
+                        if (!items.ContainsKey(datos[4]))
+                        {
+                            items.Add(actualItem.cod, actualItem);
+                        }
+                        items[datos[4]].IncreaserCount();
+                    }
+
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+                Console.WriteLine(items.Count());
             }
             catch(Exception e)
             {
-                Console.WriteLine()
+                Console.WriteLine("Error LoadTransaction: \n" + e.StackTrace);
             }
+        }
+
+        public void FiltrarPorSupport()
+        {
+            foreach(KeyValuePair<String, Item> pairs in items)
+            {
+                Console.WriteLine(pairs.Value.countSupport);
+                if (!(pairs.Value.countSupport >= (minSupport * items.Count())))
+                {
+                    
+                    items[pairs.Key]=null;
+                }
+            }
+            foreach (KeyValuePair<String, Item> pairs in items)
+            {
+                if (pairs.Value!=null)
+                {
+                    frequentItems.Add(pairs.Key, pairs.Value);
+                }
+            }
+            Console.WriteLine(frequentItems.Count());
         }
     }
 }
