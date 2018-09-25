@@ -24,7 +24,7 @@ namespace AlgorithmTests
             //{
                // Console.WriteLine("Ingrese valor de minSupport para los items (10-100)");
                 //int minS = Convert.ToInt32(Console.ReadLine());
-                Data data = new Data(80);
+                Data data = new Data(20);
                 data.LoadTransactions();
                 data.FiltrarPorSupport();
                 //data.LoadTransactions();

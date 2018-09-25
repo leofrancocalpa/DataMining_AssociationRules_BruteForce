@@ -19,7 +19,7 @@ namespace Algorithms
         public Dictionary<String, Transaction> transactions { get; set; }
         public Dictionary<String, Item> frequentItems { get; set; }
 
-        public Data(int minS)
+        public Data(double minS)
         {
             minSupport = minS/100;
             items = new Dictionary<String, Item>();
@@ -76,21 +76,13 @@ namespace Algorithms
         {
             foreach(KeyValuePair<String, Item> pairs in items)
             {
-                Console.WriteLine(pairs.Value.countSupport);
-                if (!(pairs.Value.countSupport >= (minSupport * items.Count())))
-                {
-                    
-                    items[pairs.Key]=null;
-                }
-            }
-            foreach (KeyValuePair<String, Item> pairs in items)
-            {
-                if (pairs.Value!=null)
+                int c = pairs.Value.countSupport;
+                if (c>(minSupport*items.Count))
                 {
                     frequentItems.Add(pairs.Key, pairs.Value);
                 }
             }
-            Console.WriteLine(frequentItems.Count());
+            Console.WriteLine(frequentItems.Count);
         }
     }
 }
