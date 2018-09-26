@@ -22,9 +22,9 @@ namespace AlgorithmTests
 
            // if (num == 1)
             //{
-               // Console.WriteLine("Ingrese valor de minSupport para los items (10-100)");
-                //int minS = Convert.ToInt32(Console.ReadLine());
-                Data data = new Data(20);
+                Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
+                int minS = Convert.ToInt32(Console.ReadLine());
+                Data data = new Data(minS);
                 data.LoadTransactions();
                 data.FiltrarPorSupport();
                 //data.LoadTransactions();
