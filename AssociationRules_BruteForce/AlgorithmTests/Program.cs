@@ -18,20 +18,17 @@ namespace AlgorithmTests
             Console.WriteLine("*******************************************************");
             Console.WriteLine("\n");
 
-           // int num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
+            int minS = Convert.ToInt32(Console.ReadLine());
+            Data data = new Data(minS);
+            data.LoadTransactions();
+            data.FiltrarPorSupport();
 
-           // if (num == 1)
-            //{
-                Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
-                int minS = Convert.ToInt32(Console.ReadLine());
-                Data data = new Data(minS);
-                data.LoadTransactions();
-                data.FiltrarPorSupport();
-                //data.LoadTransactions();
-                //data.SaveRelevantItems();
-                Console.WriteLine("Acabó");
-                Console.ReadLine();
-            //}
+            Dictionary<String, Item> FI = data.frequentItems;
+
+            Console.ReadLine();
+            
         }
+        
     }
 }

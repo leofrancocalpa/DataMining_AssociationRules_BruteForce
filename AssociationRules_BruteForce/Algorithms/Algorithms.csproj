@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Combinacion.cs" />
     <Compile Include="FIGeneration.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Data.cs" />
