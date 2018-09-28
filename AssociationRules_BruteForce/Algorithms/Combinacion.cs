@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    class Combinacion
+    public class Combinacion
     {
         static Func<int, double> factorial = x => Enumerable.Range(1, x).Aggregate(1.0, (a, b) => a * b);
         static Func<int, int, double> combinatoria = (x, y) => (factorial(x))/((factorial(y))*factorial(x-y));

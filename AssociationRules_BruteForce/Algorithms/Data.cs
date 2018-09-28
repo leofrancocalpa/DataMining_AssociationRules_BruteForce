@@ -84,6 +84,7 @@ namespace Algorithms
                 }
             }
             Console.WriteLine("Items frecuentes: "+frequentItems.Count);
+            //frequentItems.ToList().ForEach(x => Console.WriteLine(x.Value.countSupport));
         }
     }
 }

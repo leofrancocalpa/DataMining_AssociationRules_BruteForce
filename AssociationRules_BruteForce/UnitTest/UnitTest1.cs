@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Algorithms;
 
 namespace UnitTest
 {
@@ -9,6 +10,7 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+            
         }
     }
 }

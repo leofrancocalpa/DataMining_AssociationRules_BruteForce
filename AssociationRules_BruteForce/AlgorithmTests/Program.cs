@@ -25,9 +25,20 @@ namespace AlgorithmTests
             data.FiltrarPorSupport();
 
             Dictionary<String, Item> FI = data.frequentItems;
+            Combinacion comb = new Combinacion();
+            List<IEnumerable<KeyValuePair<String,Item >>> sets = comb.Combinations(FI, 3).ToList();
 
+            //Console.ReadLine();
+
+            foreach(IEnumerable<KeyValuePair<String,Item>> conjunto in sets)
+            {
+                List<KeyValuePair<String, Item>> evaluado = conjunto.ToList();
+                String itemsC = " ";
+                evaluado.ToList().ForEach(x => itemsC += x.Value.cod + " ");
+                Console.WriteLine(itemsC);
+            }
+            Console.WriteLine("¡Terminó!");
             Console.ReadLine();
-            
         }
         
     }
