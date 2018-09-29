@@ -44,6 +44,7 @@
     <Compile Include="FIGeneration.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="ItemSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
