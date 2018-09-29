@@ -32,42 +32,52 @@ namespace Algorithms
         public void loadItemSet(int setLenght)
         {
             Combinacion comb = new Combinacion();
-            List<IEnumerable<KeyValuePair<String, Item>>> sets = comb.Combinations(datos.frequentItems, 3).ToList();
+            List<IEnumerable<KeyValuePair<String, Item>>> sets = comb.Combinations(datos.frequentItems, setLenght).ToList();
+            Console.WriteLine("Tamaño conjuntos comb: " + sets.Count);
             foreach (IEnumerable<KeyValuePair<String, Item>> conjunto in sets)
             {
                 ItemSet newItemSet = new ItemSet();
                 List<KeyValuePair<String, Item>> evaluado = conjunto.ToList();
                 evaluado.ForEach(x => newItemSet.items.Add(x));
                 itemSet.Add(newItemSet);
-                
+
             }
         }
 
         public void BruteForce()
         {
-            Dictionary<String, Transaction> transactions = datos.transactions;
-            foreach(ItemSet itemset in itemSet)
-            {  
-               foreach(KeyValuePair<String, Transaction> transaccion in transactions)
+            try
+            {
+                Dictionary<String, Transaction> transactions = datos.transactions;
+                foreach (ItemSet itemset in itemSet)
                 {
-                    int valor = 0;
-                    foreach (KeyValuePair<String, Item> item in itemset.items)
+                    foreach (KeyValuePair<String, Transaction> transaccion in transactions)
                     {
-                        if(transaccion.Value.items.Contains(item.Value))
+                        int valor = 0;
+                        foreach (KeyValuePair<String, Item> item in itemset.items)
                         {
-                            valor++;
-                            //Console.WriteLine("1sddxxxxxxxxxxxxxxxxxxxxxx");
+                            if (transaccion.Value.items.Contains(item.Value))
+                            {
+                                valor++;
+                                //Console.WriteLine("1sddxxxxxxxxxxxxxxxxxxxxxx");
+                            }
+                        }
+                        if (valor == itemset.items.Count)
+                        {
+                            itemset.IncreaseSupport();
+                            Console.WriteLine(transaccion.Value.cod);
                         }
                     }
-                    if (valor == itemset.items.Count)
-                    {
-                        Console.WriteLine("2ddyyyyyyyyyyyyyyyyyyyyyy");
 
-                        itemset.IncreaseSupport();
-                    }
                 }
-               
+
             }
+            catch (Exception)
+            {
+
+                Console.WriteLine("JODIDO");
+            }
+
         }
     }
 }

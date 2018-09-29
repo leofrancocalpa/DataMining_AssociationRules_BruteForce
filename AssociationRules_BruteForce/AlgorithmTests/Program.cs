@@ -21,17 +21,17 @@ namespace AlgorithmTests
             Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
             int minS = Convert.ToInt32(Console.ReadLine());
             FIGeneration fIGeneration = new FIGeneration(minS);
-            fIGeneration.loadItemSet(3);
+            Console.WriteLine("Ingrese el tamaño de r para las combinaciones");
+            int tamCom = Convert.ToInt32(Console.ReadLine());
+            fIGeneration.loadItemSet(tamCom);
             fIGeneration.BruteForce();
 
             foreach(ItemSet itemset in fIGeneration.itemSet)
             {
-                if(itemset.countSupport>5)
-                {
-                    Console.WriteLine(itemset.countSupport);
-                }
-                    
-
+                String cods = "";
+                itemset.items.ForEach(x => cods += x.Value.cod+" ");
+                Console.WriteLine(itemset.countSupport+" "+cods);
+                
             }
             
             //Console.ReadLine();
