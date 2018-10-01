@@ -32,7 +32,12 @@ namespace Algorithms
         public void FrequentIGApriorio()
         {
             int k = 1; // size k of itemset (k-itemset)
-            //HashSet<>
+            Dictionary<String, Item> fItemSetK1 = datos.frequentItems;
+            do
+            {
+                k++;
+
+            } while (fItemSetK1.Count != 0);
         }
 
         public void loadItemSet(int setLenght)
@@ -87,7 +92,7 @@ namespace Algorithms
         {
             foreach(ItemSet itemset in candidates)
             {
-                if (itemset.countSupport >= minsup * datos.transactions.Count)
+                if (itemset.countSupport >= 0.2 * datos.transactions.Count)
                 {
                     Console.WriteLine(itemset.countSupport + "++ " + minsup*datos.transactions.Count);
                     fItemSets.Add(itemset);

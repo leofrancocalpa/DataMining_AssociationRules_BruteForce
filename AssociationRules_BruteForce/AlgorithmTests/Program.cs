@@ -31,7 +31,7 @@ namespace AlgorithmTests
             {
                 String cods = "";
                 itemset.items.ToList().ForEach(x => cods += x.Value.cod+" ");
-                Console.WriteLine(itemset.countSupport+" "+cods);
+                Console.WriteLine("Conjunto frecuente. Support: "+itemset.countSupport+" "+cods);
                 
             }
             
