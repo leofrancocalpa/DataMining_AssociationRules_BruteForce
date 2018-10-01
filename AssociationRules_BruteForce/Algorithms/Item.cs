@@ -17,6 +17,7 @@ namespace Algorithms
         {
             this.cod = cod;
             this.name = "";
+            countSupport = 0;
         }
 
         public void IncreaserCount()

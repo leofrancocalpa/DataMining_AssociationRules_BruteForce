@@ -14,6 +14,7 @@ namespace Algorithms
         private String routeVentas = "..\\..\\..\\Data\\Ventas.csv";
         private String routeFI = "..\\..\\..\\Data\\FrequentItems.csv";
         private double minSupport;
+        private String route;
 
         private Dictionary<String, Item> items { get; set; }
         public Dictionary<String, Transaction> transactions { get; set; }
@@ -21,17 +22,18 @@ namespace Algorithms
 
         public Data(double minS)
         {
-            minSupport = minS/100;
+            minSupport = minS;
             items = new Dictionary<String, Item>();
             transactions = new Dictionary<string, Transaction>();
             frequentItems = new Dictionary<string, Item>();
+            route = routeVentas;
         }
 
         public void LoadTransactions()
         {
             try
             {
-                StreamReader sr = new StreamReader(routeVentas);
+                StreamReader sr = new StreamReader(route);
                 String line = sr.ReadLine();
                 line = sr.ReadLine();
                 while (line != null)
@@ -41,7 +43,9 @@ namespace Algorithms
                     if (transactions.ContainsKey(datos[1]))
                     {
                         Item actualItem = new Item(datos[4]);
-                        transactions[datos[1]].items.Add(actualItem);
+                        KeyValuePair<String, Item> itemtoIn = new KeyValuePair<string, Item>(actualItem.cod, actualItem);
+
+                        transactions[datos[1]].items.items.Add(itemtoIn.Key,itemtoIn.Value);
                         if (!items.ContainsKey(datos[4]))
                         {
                             items.Add(actualItem.cod, actualItem);
@@ -53,7 +57,8 @@ namespace Algorithms
                         Transaction actual = new Transaction(datos[0], datos[1], datos[2]);
                         transactions.Add(datos[1], actual);
                         Item actualItem = new Item(datos[4]);
-                        actual.items.Add(actualItem);
+                        KeyValuePair<String, Item> itemtoIn = new KeyValuePair<string, Item>(actualItem.cod, actualItem);
+                        actual.items.items.Add(itemtoIn.Key,itemtoIn.Value);
                         if (!items.ContainsKey(datos[4]))
                         {
                             items.Add(actualItem.cod, actualItem);
@@ -78,13 +83,19 @@ namespace Algorithms
             foreach(KeyValuePair<String, Item> pairs in items)
             {
                 int c = pairs.Value.countSupport;
+                Console.WriteLine(pairs.Key + " " + c);
                 if (c>(minSupport*transactions.Count))
                 {
                     frequentItems.Add(pairs.Key, pairs.Value);
                 }
             }
+            items.OrderBy(x => x.Key);
             Console.WriteLine("Items frecuentes: "+frequentItems.Count);
             //frequentItems.ToList().ForEach(x => Console.WriteLine(x.Value.countSupport));
+        }
+        public void loadDataTest()
+        {
+            route = "..\\..\\..\\Data\\datosTest.csv";
         }
     }
 }

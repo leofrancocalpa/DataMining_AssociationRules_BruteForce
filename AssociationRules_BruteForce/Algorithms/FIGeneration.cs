@@ -8,18 +8,24 @@ namespace Algorithms
 {
     public class FIGeneration
     {
-        private int minsup;
+        private double minsup;
         private Data datos;
-        public List<ItemSet> itemSet { get; set; }
+        public List<ItemSet> candidates { get; set; }
+        public List<ItemSet> fItemSets { get; set; }
 
         //Constructor
-        public FIGeneration(int minSupport)
+        public FIGeneration(double minSupport, Boolean test)
         {
-            minsup = minSupport;
+            minsup = minSupport/100;
             datos = new Data(minsup);
+            if (test)
+            {
+                datos.loadDataTest();
+            }
             datos.LoadTransactions();
             datos.FiltrarPorSupport();
-            itemSet = new List<ItemSet>();
+            candidates = new List<ItemSet>();
+            fItemSets = new List<ItemSet>();
         }
 
         //Frequent Intemset Generation Apriori Algorithm 
@@ -38,46 +44,55 @@ namespace Algorithms
             {
                 ItemSet newItemSet = new ItemSet();
                 List<KeyValuePair<String, Item>> evaluado = conjunto.ToList();
-                evaluado.ForEach(x => newItemSet.items.Add(x));
-                itemSet.Add(newItemSet);
+                evaluado.ForEach(x => newItemSet.items.Add(x.Key, x.Value));
+                candidates.Add(newItemSet);
 
             }
         }
 
-        public void BruteForce()
+        public List<ItemSet> BruteForce()
         {
-            try
+            Dictionary<String, Transaction> transactions = datos.transactions;
+            foreach (ItemSet itemset in candidates)
             {
-                Dictionary<String, Transaction> transactions = datos.transactions;
-                foreach (ItemSet itemset in itemSet)
+                Console.WriteLine("Itemset: -------------");
+                foreach (KeyValuePair<String, Transaction> transaccion in transactions)
                 {
-                    foreach (KeyValuePair<String, Transaction> transaccion in transactions)
+                    Console.WriteLine("Transaccion:-----------");
+                    int valor = 0;
+                    foreach (KeyValuePair<String, Item> item in itemset.items)
                     {
-                        int valor = 0;
-                        foreach (KeyValuePair<String, Item> item in itemset.items)
+                        Console.WriteLine("item: >" + item.Key);
+                        if (transaccion.Value.items.items.ContainsKey(item.Key))
                         {
-                            if (transaccion.Value.items.Contains(item.Value))
-                            {
-                                valor++;
-                                //Console.WriteLine("1sddxxxxxxxxxxxxxxxxxxxxxx");
-                            }
-                        }
-                        if (valor == itemset.items.Count)
-                        {
-                            itemset.IncreaseSupport();
-                            Console.WriteLine(transaccion.Value.cod);
+                            valor++;
+                            Console.WriteLine("item entra: " + item);
                         }
                     }
-
+                    Console.WriteLine("valor: " + valor);
+                    if (valor == itemset.items.Count)
+                    {
+                        itemset.IncreaseSupport();
+                        String ite = "";
+                        itemset.items.ToList().ForEach(x => ite += x.Key + " ");
+                        Console.WriteLine("Entro: " + transaccion.Value.cod + " " + itemset.countSupport + " <" + ite);
+                    }
                 }
 
             }
-            catch (Exception)
+            return fItemSets;
+        }
+        
+        public void pruning()
+        {
+            foreach(ItemSet itemset in candidates)
             {
-
-                Console.WriteLine("JODIDO");
+                if (itemset.countSupport >= minsup * datos.transactions.Count)
+                {
+                    Console.WriteLine(itemset.countSupport + "++ " + minsup*datos.transactions.Count);
+                    fItemSets.Add(itemset);
+                }
             }
-
         }
     }
 }

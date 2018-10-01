@@ -9,18 +9,18 @@ namespace Algorithms
 {
     public class ItemSet 
     {
-        public List<KeyValuePair<String, Item>> items { get; set; }
+        public Dictionary<String, Item> items { get; set; }
         public int countSupport { get; set; }
 
         public ItemSet()
         {
-            items = new List<KeyValuePair<string, Item>>();
+            items = new Dictionary<string, Item>();
             countSupport = 0;
         }
 
         public void IncreaseSupport()
         {
-            countSupport++;
+            countSupport+=1;
         }
     }
 }
