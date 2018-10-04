@@ -20,18 +20,19 @@ namespace AlgorithmTests
 
             Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
             double minS = Convert.ToInt32(Console.ReadLine());
-            FIGeneration fIGeneration = new FIGeneration(minS, true);
-            Console.WriteLine("Ingrese el tamaño de r para las combinaciones");
-            int tamCom = Convert.ToInt32(Console.ReadLine());
-            fIGeneration.loadItemSet(tamCom);
-            fIGeneration.BruteForce();
-            fIGeneration.pruning();
+            FIGeneration fIGeneration = new FIGeneration(minS, false);
+            fIGeneration.FrequentItemGeneration(4);
+            //Console.WriteLine("Ingrese el tamaño de r para las combinaciones");
+            //int tamCom = Convert.ToInt32(Console.ReadLine());
+            //fIGeneration.loadItemSet(tamCom);
+            //fIGeneration.BruteForce();
+            //fIGeneration.pruning();
 
             foreach(ItemSet itemset in fIGeneration.fItemSets)
             {
                 String cods = "";
                 itemset.items.ToList().ForEach(x => cods += x.Value.cod+" ");
-                Console.WriteLine("Conjunto frecuente. Support: "+itemset.countSupport+" "+cods);
+                Console.WriteLine("Conjunto frecuente -> Support: "+itemset.countSupport+" Conjunto: "+cods);
                 
             }
             

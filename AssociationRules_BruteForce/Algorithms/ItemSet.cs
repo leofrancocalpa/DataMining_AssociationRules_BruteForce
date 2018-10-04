@@ -22,5 +22,23 @@ namespace Algorithms
         {
             countSupport+=1;
         }
+
+        public Boolean ContainsItems(Dictionary<String, Item> evaluated)
+        {
+            Boolean salida = false;
+            int count = 0;
+            foreach(KeyValuePair<String, Item> pairs in evaluated)
+            {
+                if (items.ContainsKey(pairs.Key))
+                {
+                    count++;
+                }
+            }
+            if (count == evaluated.Count)
+            {
+                salida = true;
+            }
+            return salida;
+        }
     }
 }
