@@ -20,14 +20,11 @@ namespace AlgorithmTests
 
             Console.WriteLine("Ingrese valor de minSupport para los items (1-100)%");
             double minS = Convert.ToInt32(Console.ReadLine());
-            FIGeneration fIGeneration = new FIGeneration(minS, true);
-            fIGeneration.AprioriFrequentItemGeneration(3);
-            //Console.WriteLine("Ingrese el tamaño de r para las combinaciones");
-            //int tamCom = Convert.ToInt32(Console.ReadLine());
-            //fIGeneration.loadItemSet(tamCom);
-            //fIGeneration.BruteForce();
-            //fIGeneration.pruning();
+            FIGeneration fIGeneration = new FIGeneration(minS, true);//true ejemplo del libro, false datos allers
 
+            fIGeneration.FrequentItemGeneration(3);// parametro tamaño k de k-itemset comniacion maximo
+            //fIGeneration.AprioriFrequentItemGeneration();
+            
             foreach(ItemSet itemset in fIGeneration.candidates)
             {
                 String cods = "";

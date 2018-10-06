@@ -34,7 +34,7 @@ namespace Algorithms
             int k = 1; // size k of itemset (k-itemset)
             Dictionary<String, Item> Fk = datos.FiltrarPorSupport();
 
-            Console.WriteLine("candidates: " + candidates.Count);
+            Console.WriteLine("Numero de candidatos T0: " + candidates.Count + " fk " + Fk.Count);
             while (k <= j)
             {
                 Console.WriteLine("Iteracion: " + k);
@@ -42,7 +42,7 @@ namespace Algorithms
                 //List<ItemSet> Fks = pruning( Ck.ToList()).ToList();
                 Console.WriteLine(">>"+Ck.ToList().Count);
                 candidates = candidates.Union(Ck.ToList(), new ItemSetComparator()).ToList();
-                Console.WriteLine("canddates in time "+k+" it's lenght is: "+candidates.Count);
+                Console.WriteLine("candidatos en interacion " + k + " son de tamaño: " + candidates.Count);
                 k++;
             }
             SupportCounter(candidates);
@@ -51,7 +51,7 @@ namespace Algorithms
             Console.WriteLine("Numero de conjuntos frcuentes: " + fItemSets.Count);
         }
 
-        public void AprioriFrequentItemGeneration(int j)
+        public void AprioriFrequentItemGeneration()
         {
             int k = 1; // size k of itemset (k-itemset)
             Dictionary<String, Item> Fk = datos.FiltrarPorSupport();
