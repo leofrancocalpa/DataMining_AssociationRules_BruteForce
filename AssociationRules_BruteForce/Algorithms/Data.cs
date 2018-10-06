@@ -17,16 +17,16 @@ namespace Algorithms
         private double minSupport;
         private String route;
 
-        private Dictionary<String, Item> items { get; set; }
+        public Dictionary<String, Item> items { get; set; }
         public Dictionary<String, Transaction> transactions { get; set; }
-        //public Dictionary<String, Item> frequentItems { get; set; }
+        public Dictionary<String, Item> frequentItems { get; set; }
 
         public Data(double minS)
         {
             minSupport = minS;
             items = new Dictionary<String, Item>();
             transactions = new Dictionary<string, Transaction>();
-            //frequentItems = new Dictionary<string, Item>();
+            frequentItems = new Dictionary<string, Item>();
             route = routeVentas;
         }
 
@@ -84,12 +84,12 @@ namespace Algorithms
 
         public Dictionary<String, Item> FiltrarPorSupport()
         {
-            Dictionary<String, Item> frequentItems = new Dictionary<string, Item>();
+            //Dictionary<String, Item> frequentItems = new Dictionary<string, Item>();
             foreach(KeyValuePair<String, Item> pairs in items)
             {
                 int c = pairs.Value.countSupport;
                 //Console.WriteLine(pairs.Key + " " + c);
-                if (c>(minSupport*transactions.Count))
+                if (c>=(minSupport*transactions.Count))
                 {
                     frequentItems.Add(pairs.Key, pairs.Value);
                 }
