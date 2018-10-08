@@ -10,3 +10,9 @@ C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_Bru
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.dll
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.pdb
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\bin\Debug\Algorithms.dll
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\bin\Debug\Algorithms.pdb
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.csprojAssemblyReference.cache
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.dll
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\Algorithms\obj\Debug\Algorithms.pdb

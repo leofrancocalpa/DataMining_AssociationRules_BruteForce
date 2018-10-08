@@ -18,3 +18,13 @@ C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_Bru
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.csproj.CopyComplete
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.exe
 C:\Users\USUARIO\git\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.pdb
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\bin\Debug\AlgorithmTests.exe.config
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\bin\Debug\AlgorithmTests.exe
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\bin\Debug\AlgorithmTests.pdb
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\bin\Debug\Algorithms.dll
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\bin\Debug\Algorithms.pdb
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.csprojAssemblyReference.cache
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.csproj.CoreCompileInputs.cache
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.csproj.CopyComplete
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.exe
+C:\Users\Anderson\Desktop\videos mexico\DataMining_AssociationRules_BruteForce\AssociationRules_BruteForce\AlgorithmTests\obj\Debug\AlgorithmTests.pdb

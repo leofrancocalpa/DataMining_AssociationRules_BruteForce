@@ -29,10 +29,11 @@ namespace Algorithms
         }
 
         //Frequent Intemset Generation Apriori Algorithm 
+
         public void FrequentItemGeneration(int j)
         {
             int k = 1; // size k of itemset (k-itemset)
-            Dictionary<String, Item> Fk = datos.FiltrarPorSupport();
+            Dictionary<String, Item> Fk = datos.items;
 
             Console.WriteLine("Numero de candidatos T0: " + candidates.Count + " fk " + Fk.Count);
             while (k <= j)
@@ -108,6 +109,7 @@ namespace Algorithms
             return salida;
         }
 
+        //FuerzaBurta
         public IEnumerable<ItemSet> SupportCounter(List<ItemSet> candidates)
         {
             Dictionary<String, Transaction> transactions = datos.transactions;
