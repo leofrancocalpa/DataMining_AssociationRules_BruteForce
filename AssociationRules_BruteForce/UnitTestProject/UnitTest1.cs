@@ -15,16 +15,16 @@ namespace UnitTestProject
 
         public void setScene0()
         {
-            esperados.Add("BREAD", 4);
-            esperados.Add("MILK", 4);
-            esperados.Add("DIAPERS", 4);
-            esperados.Add("BEER", 4);
-            esperados.Add("BREAD MILK", 4);
-            esperados.Add("BREAD DIAPERS", 4);
-            esperados.Add("MILK DIAPERS", 4);
-            esperados.Add("DIAPERS BEER", 4);
+            esperados.Add("BREAD ", 4);
+            esperados.Add("MILK ", 4);
+            esperados.Add("DIAPERS ", 4);
+            esperados.Add("BEER ", 3);
+            esperados.Add("BREAD MILK ", 3);
+            esperados.Add("BREAD DIAPERS ", 3);
+            esperados.Add("MILK DIAPERS ", 3);
+            esperados.Add("DIAPERS BEER ", 3);
 
-            fIGeneration = new FIGeneration(60, true);//min support del 20%
+            fIGeneration = new FIGeneration(60, true);//min support del 60%
             fIGeneration.FrequentItemGeneration(3);
             
         }
@@ -32,10 +32,11 @@ namespace UnitTestProject
         public void TestEjemploLibro()
         {
             setScene0();
-            String cadena = "";
+            
             
             foreach (ItemSet candidatoFrecuente in fIGeneration.candidates)
             {
+                String cadena = "";
                 foreach (KeyValuePair<String, Item> i in candidatoFrecuente.items)
                 {
                     cadena += i.Key + " ";
@@ -45,7 +46,11 @@ namespace UnitTestProject
                 if (esperados.ContainsKey(cadena))
                 {
                   Boolean op =  candidatoFrecuente.countSupport == esperados[cadena];
-                Assert.IsTrue(op);
+                  Assert.IsTrue(op);
+                }
+                else
+                {
+                    Assert.IsTrue(false);
                 }
 
             }
